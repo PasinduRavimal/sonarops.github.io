@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sonar Ops</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sonar Ops</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Sonar Ops" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Sonar Ops" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Sonar Ops","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <div class="sonar-ops" id="sonarOps">
+  <div class="controls" id="controls">
+    <h1>Sonar Ops</h1>
+    <form id="sonarForm" onsubmit="return false;">
+      <div class="field">
+        <label for="aspectRatio">Aspect ratio</label>
+        <select id="aspectRatio" name="aspectRatio">
+          <option value="square" selected>Square</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="strategySelect">Strategy</label>
+        <select id="strategySelect" name="strategySelect">
+          <option value="0" selected>Rule-based</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rows">Rows</label>
+        <input id="rows" name="rows" type="number" min="1" step="1" placeholder="e.g., 4" required />
+      </div>
+      <div class="field">
+        <label for="cols">Columns</label>
+        <input id="cols" name="cols" type="number" min="1" step="1" placeholder="e.g., 4" required />
+      </div>
+      <div class="actions">
+        <button id="buildBtn" type="button">Build grid</button>
+      </div>
+      <p class="hint" id="squareHint">Square aspect ratio: columns mirror rows.</p>
+
+      <hr style="margin: 1rem 0; border: 0; border-top: 1px solid #eee;" />
+
+      <div class="field field-inline">
+        <label for="valueInput">Add boat</label>
+        <div class="inline-wrap">
+          <input id="valueInput" name="valueInput" type="number" step="1" min="1" placeholder="e.g., 3" />
+          <button id="addValueBtn" type="button" class="btn">Add</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Boats</label>
+        <div class="table-wrap">
+          <table id="valuesTable" aria-live="polite">
+            <thead>
+              <tr>
+                <th style="width: 70%;">Boat</th>
+                <th style="width: 30%;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="valuesBody">
+              <!-- rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="grid-holder" id="gridHolder" aria-live="polite"></div>
+</div>
+
+<!-- Simple modal for cell confirmation -->
+<div id="cellModal" class="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-body">
+      <p id="modalText">Was there a boat in this cell?</p>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn" id="modalYes">Yes</button>
+      <button type="button" class="btn btn-neutral" id="modalNo">No</button>
+      <button type="button" class="btn btn-light" id="modalCancel">Cancel</button>
+    </div>
+  </div>
+  <div class="modal-backdrop"></div>
+  
+</div>
+
+<link rel="preload" href="/assets/js/sonar_ops.js" as="script">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" integrity="sha384-cdn-d3-placeholder" crossorigin="anonymous"></script>
+<script defer src="/assets/js/sonar_rulesv1.js"></script>
+<script defer src="/assets/js/sonar_ops.js"></script>
+
+  </body>
+</html>
